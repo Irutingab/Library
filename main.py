@@ -9,7 +9,7 @@ def main():
     
     # Add new columns
     appender = AddNewRowsandColumns()
-    appender.NewrowsAndcolumns()
+    #appender.NewrowsAndcolumns()
     
     # Update rows
     updater = UpdateSheet()
