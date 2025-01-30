@@ -14,15 +14,19 @@ from utilities.Availablebooks import CountBooks
 def main():
     # Save data
     manager = LibraryManagement()
-    #manager.save_data_to_sheet()
+    manager.save_data_to_sheet()
     
     # Add new columns
     appender = AddNewRowsandColumns()
-    #appender.NewrowsAndcolumns()
+    appender.NewrowsAndcolumns()
+    
+    #count books in LSL
+    manager = CountBooks()  
+    manager.AvailableBooks()
     
     # Update rows
     updater = UpdateSheet()
-    updater.DatainCells()
+    #updater.DatainCells()
     
     # Delete desired data or empty cells
     manager = DeleteRowFromFile()
@@ -33,10 +37,6 @@ def main():
     #to recover a deleted row
     manager = RecoverColumns()
     #manager.NewrowsAndcolumns()
-    
-    manager = CountBooks()  
-    manager.AvailableBooks()
-
 
 if __name__ == "__main__":
     main()

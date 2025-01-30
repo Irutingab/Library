@@ -30,7 +30,6 @@ class RecoverColumns:
             
             # Add data to all rows
             for row in range(2, self.worksheet.max_row + 1):
-                self.worksheet.publication_year = self.faker.year()
                 self.worksheet.cell(row=row, column=self.column_index, value=self.faker.year())
             
             # Save the workbook
