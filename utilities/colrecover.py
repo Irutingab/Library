@@ -4,7 +4,7 @@ import os
 from openpyxl.utils import get_column_letter, column_index_from_string
 
 class RecoverColumns:
-    def __init__(self, column_name="D", column_index="D", file_name="./storage/Librarie_Saint_Laurent.xlsx", sheet_name="Information_Librarie_SL"):
+    def __init__(self, column_name="C", column_index="C", file_name="./storage/Librarie_Saint_Laurent.xlsx", sheet_name="Information_Librarie_SL"):
         self.file_name = file_name
         self.sheet_name = sheet_name
         self.column_name = column_name
@@ -39,9 +39,3 @@ class RecoverColumns:
         else:
             print(f"File '{self.file_name}' does not exist.")
             
-def main():
-    manager = RecoverColumns()
-    manager.NewrowsAndcolumns()
-    
-if __name__ == "__main__":
-    main()

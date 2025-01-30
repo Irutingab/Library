@@ -22,7 +22,7 @@ class DeleteRowFromFile:
             self.workbook = openpyxl.load_workbook(self.file_name)
             self.worksheet = self.workbook.active
             
-            self.worksheet.delete_cols(3) 
+            self.worksheet.delete_cols(4) 
             self.workbook.save(self.file_name)
             print(f"column deleted from '{self.file_name}'") 
             
@@ -36,12 +36,4 @@ class DeleteRowFromFile:
             self.worksheet["B3"].value = None #deletes the value of cell B3
             self.workbook.save(self.file_name)
             print(f"cell deleted from '{self.file_name}'")  
-            
-            
-def main():
-        manager = DeleteRowFromFile()
-        #manager.RemovecellValue()
-        #manager.RemoveRow()
-        #manager.RemoveCol()
-if __name__ == "__main__":
-        main()      
+    

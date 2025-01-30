@@ -8,14 +8,15 @@ class UpdateSheet:
         self.workbook = None
         self.worksheet = None
         
-    def SheetName(self):
+    def DatainCells(self):
         if os.path.exists(self.file_name):
                 # Load the workbook
             self.workbook = load_workbook(self.file_name)
             self.worksheet = self.workbook.active
                 
                 # Update cell value
-            self.worksheet["C8"] = "2005"
+            self.worksheet["B3"] = "Unkown Author"
+            
                 
                 # Save changes using the instance variable
             self.workbook.save(self.file_name)
