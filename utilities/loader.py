@@ -31,7 +31,7 @@ class LibraryManagement:
 
     def generate_data(self):
         """Generate book info using Faker."""
-        Book_name = self.faker.sentence(nb_words=4)
+        Book_name = self.faker.text(max_nb_chars=20)
         Author_name = self.faker.name()
         Publication_Year = self.faker.year()
         return Book_name, Author_name, Publication_Year

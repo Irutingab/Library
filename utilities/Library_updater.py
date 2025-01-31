@@ -8,16 +8,16 @@ class UpdateSheet:
         self.workbook = None
         self.worksheet = None
         
-    def DatainCells(self):
+    def UpdateDatainCells(self):
         if os.path.exists(self.file_name):
                 # Load the workbook
             self.workbook = load_workbook(self.file_name)
             self.worksheet = self.workbook.active
                 
                 # Update cell value
-            self.worksheet["B3"] = "Unkown Author"
-            
-                
+            self.worksheet["A112"] = "Beyond the valley"
+            self.worksheet["B131"] = "Colleen Hoover"
+            self.worksheet["B132"] = " colleen Hoover"   
                 # Save changes using the instance variable
             self.workbook.save(self.file_name)
             print(f"Cell updated successfully in '{self.file_name}'")
