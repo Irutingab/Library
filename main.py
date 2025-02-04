@@ -36,7 +36,7 @@ class LibraryManager:
             self.worksheet.append([book, author, publication_year])  
             print(f"Book '{book}' added successfully!")
         else:
-            print("Error: All fields must be Completed!")
+            print("Error: All fields must be completed!")
 
     def view_books(self):
         """Displays all books in the library."""
@@ -45,22 +45,50 @@ class LibraryManager:
             print(row)
 
     def edit_book(self):
-        """Allows a user to edit an existing book by title."""
+        """Allows a user to edit specified details of an existing book."""
         book_to_edit = input("Enter the title of the book you want to edit: ").strip()
+        found = False
 
         for row in self.worksheet.iter_rows(min_row=2, values_only=False):  
             if row[0].value == book_to_edit:
-                print("Book found! Enter new details:")
-                row[0].value = input("Enter new book title: ").strip()
-                row[1].value = input("Enter new author name: ").strip()
-                row[2].value = input("Enter new publication year: ").strip()
                 found = True
-                break
+                print("What would you like to edit?")
+                print("1. Title")
+                print("2. Author")
+                print("3. Publication Year")
+                print("4. Cancel")
 
-        if found:
-            self.save_workbook()
-            print(f"Book '{book_to_edit}' has been updated successfully!")
-        else:
+                choice = input("Enter your choice (1-4): ").strip()
+
+                if choice == '1':
+                    new_title = input("Enter new book title: ").strip()
+                
+                    row[0].value = new_title
+                    print("Title updated successfully!")
+
+                elif choice == '2':
+                    new_author = input("Enter new author name: ").strip()
+                    row[1].value = new_author
+                    print("Author updated successfully!")
+
+                elif choice == '3':
+                    new_year = input("Enter new publication year: ").strip()
+                    row[2].value = new_year
+                    print("Publication year updated successfully!")
+
+                elif choice == '4':
+                    print("Edit cancelled.")
+                    return
+
+                else:
+                    print("Invalid choice. Returning to menu.")
+                    return
+
+                self.save_workbook()
+                print(f"Book '{book_to_edit}' has been updated successfully!")
+                return  
+
+        if not found:
             print("Book not found.")
 
     def display_menu(self):
@@ -72,7 +100,7 @@ class LibraryManager:
             print("3. View All Books")  
             print("4. Save and Exit")
 
-            choice = input("Enter your choice (1-6): ")
+            choice = input("Enter your choice (1-4): ")
 
             if choice == '1':
                 self.add_book()
