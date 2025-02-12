@@ -1,10 +1,9 @@
-from loader import LibraryManagement
+from LibraryManager import LibraryManager
+
 
 def main():
-    # Save data
-    manager = LibraryManagement()
-    manager.save_data_to_sheet()
-
+    manager = LibraryManager()
+    manager.display_menu()
 
 if __name__ == "__main__":
     main()
